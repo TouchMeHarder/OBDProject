@@ -35,12 +35,10 @@ public class BuscarDispositivos {
 
             @Override
             public void servicesDiscovered(int i, ServiceRecord[] srs) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
             public void serviceSearchCompleted(int i, int i1) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
 
             @Override
