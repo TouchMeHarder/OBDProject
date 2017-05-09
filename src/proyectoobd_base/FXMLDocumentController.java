@@ -6,6 +6,8 @@
 package proyectoobd_base;
 
 import BLL.BuscarDispositivos;
+import BLL.NewClass;
+import eu.hansolo.medusa.Gauge;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -14,14 +16,21 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.StackPane;
 
 /**
  *
  * @author practicas
  */
 public class FXMLDocumentController implements Initializable {
+    
+    NewClass gauge;
     
     @FXML
     private Button but;
@@ -31,6 +40,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private ListView<String> lista;
+    
+    @FXML
+    private StackPane pane;
     
     private ObservableList<String> items = FXCollections.observableArrayList();
     
@@ -56,6 +68,10 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         lista.setItems(items);
+        
+        gauge = new NewClass();
+        pane.setBackground(new Background(new BackgroundFill(Gauge.DARK_COLOR, CornerRadii.EMPTY, Insets.EMPTY)));
+        pane.getChildren().add(gauge);
     }    
     
 }

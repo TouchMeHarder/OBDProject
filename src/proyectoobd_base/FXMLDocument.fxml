@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoobd_base.FXMLDocumentController">
     <children>
@@ -16,5 +17,6 @@
       <Label layoutX="220.0" layoutY="14.0" text="Servicios disponibles" />
       <Button layoutX="138.0" layoutY="246.0" mnemonicParsing="false" text="Seleccionar" />
       <Button fx:id="salir" layoutX="627.0" layoutY="401.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+      <StackPane fx:id="pane" layoutX="447.0" layoutY="62.0" prefHeight="150.0" prefWidth="200.0" />
     </children>
 </AnchorPane>
