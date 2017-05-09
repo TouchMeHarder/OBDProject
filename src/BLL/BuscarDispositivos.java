@@ -5,6 +5,7 @@
  */
 package BLL;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,11 +27,17 @@ public class BuscarDispositivos {
 
         ArrayList listaDisp = new ArrayList();
         final Object peticionFinalizada = new Object();
+        
+        listaDisp.clear();
 
         DiscoveryListener dispositivosEnRango = new DiscoveryListener() {
             @Override
             public void deviceDiscovered(RemoteDevice rd, DeviceClass dc) {
-                listaDisp.add(rd);
+                try {
+                    listaDisp.add(rd.getFriendlyName(false));
+                } catch (IOException ex) {
+                    Logger.getLogger(BuscarDispositivos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
             @Override
