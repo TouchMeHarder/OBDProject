@@ -5,6 +5,7 @@
  */
 package BLL;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +21,12 @@ public class BuscarServicios {
 
     private final int URL = 0x0100;
 
-    public Map<String, List<String>> dispositivosBth() {
+    public Map<String, String> dispositivosBth() {
         Object busquedaServicios = new Object();
 
         BuscarDispositivos dispositivos = new BuscarDispositivos();
 
-        final Map<String, List<String>> resultado = new HashMap<String, List<String>>();
+        final Map<String, String> resultado = new HashMap<String, String>();
 
         DiscoveryListener serviciosDisponibles = new DiscoveryListener() {
             @Override
@@ -34,7 +35,14 @@ public class BuscarServicios {
 
             @Override
             public void servicesDiscovered(int i, ServiceRecord[] srs) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                for (int j = 0; j < srs.length; j++) {
+                    String url = srs[i].getConnectionURL(ServiceRecord.NOAUTHENTICATE_NOENCRYPT, false);
+                    
+                    if (url == null) {
+                        continue;
+                    }
+                    
+                }
             }
 
             @Override
@@ -46,7 +54,7 @@ public class BuscarServicios {
             public void inquiryCompleted(int i) {
             }
         };
-        
+
         return resultado;
     }
 

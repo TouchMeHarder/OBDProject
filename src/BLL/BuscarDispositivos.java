@@ -27,17 +27,13 @@ public class BuscarDispositivos {
 
         ArrayList listaDisp = new ArrayList();
         final Object peticionFinalizada = new Object();
-        
+
         listaDisp.clear();
 
         DiscoveryListener dispositivosEnRango = new DiscoveryListener() {
             @Override
             public void deviceDiscovered(RemoteDevice rd, DeviceClass dc) {
-                try {
-                    listaDisp.add(rd.getFriendlyName(false));
-                } catch (IOException ex) {
-                    Logger.getLogger(BuscarDispositivos.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                listaDisp.add(rd);
             }
 
             @Override

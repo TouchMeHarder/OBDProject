@@ -93,8 +93,6 @@ public class elmbtooth implements DiscoveryListener {
                     //TroubleCodesCommand trouble = new TroubleCodesCommand();
                     //trouble.run(inStream, outStream);
                     //System.out.println(trouble.getFormattedResult());
-                    RPMCommand rpm = new RPMCommand();
-                    rpm.run(inStream, outStream);
 
                     new EchoOffCommand().run(inStream, outStream);
 
@@ -103,6 +101,9 @@ public class elmbtooth implements DiscoveryListener {
                     new TimeoutCommand(60).run(inStream, outStream);
 
                     new SelectProtocolCommand(ObdProtocols.AUTO).run(inStream, outStream);
+                    
+                    RPMCommand rpm = new RPMCommand();
+                    rpm.run(inStream, outStream);
                     System.out.println(rpm.getRPM());
                 } catch (Exception e) {
                     e.printStackTrace();
